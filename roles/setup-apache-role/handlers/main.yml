@@ -1,0 +1,15 @@
+---
+# handlers file for setup-apache-role
+- name: Start apache
+  service:
+    name: httpd
+    state: started
+  when: ansible_os_family == "RedHat"
+  
+- name: Start apache2 service
+  apt:
+    name: apache2
+    state: started
+  when: ansible_os_family == "Debian"
+
+    
